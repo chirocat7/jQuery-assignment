@@ -56,7 +56,7 @@
                 { stars: '★', detail: '悪い傾向が見られます！ケガにご注意を・・・' }
             ]
         };
-
+        //乱数を生成
         function getRandomNumber() {
             return Math.floor(Math.random() * 3);
         }
@@ -88,17 +88,18 @@
                     console.log(`Stars after setting text: ${starsElement.text()}`); // デバッグ用
                     console.log(`Detail after setting text: ${detailElement.text()}`); // デバッグ用
                 }
-                $('.result').css('display', 'block');
 
-                 // ボタンのテキストを切り替える
-                 $(this).toggleClass('clicked');
-                if ($(this).hasClass('clicked')) {
-                    $(this).text('もう一度占う！');
-                    $('.result').css('display', 'none');
-                } else {
-                    $(this).text('運勢を占う！');
+                     // ボタンのテキストを切り替える
+                     if ($(this).hasClass('clicked')) {
+                      $(this).text('運勢を占う！');
+                      $('.result').css('display', 'none');
+                     } else {
+                      $(this).text('もう一度占う！');
+                      $('.result').css('display', 'block');
                     }
-                });
+
+                    $(this).toggleClass('clicked');
+                 });
             });
     </script>
 </body>
